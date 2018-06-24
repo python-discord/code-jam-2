@@ -1,0 +1,19 @@
+# This file is used by GitLab to tell it how to build and test your code.
+# You probably don't need to modify this - please don't touch it unless you're absolutely sure you need to.
+
+image: pythondiscord/site-ci:latest
+
+stages:
+  - test
+
+test:
+  tags:
+  - docker
+
+  stage: test
+
+  script:
+    - pip install -r requirements.txt
+    - pip install -r requirements-dev.txt
+
+    - flake8
